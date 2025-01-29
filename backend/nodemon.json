@@ -1,0 +1,7 @@
+{
+    "env": {
+        "DB_USER":"admin",
+        "DB_PWD":"admin",
+        "DB_NAME":"notes"
+    }
+}
