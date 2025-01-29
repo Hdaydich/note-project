@@ -48,9 +48,9 @@ app.use((error,req,res,next)=>{
     res.json({message:error.message||'An unknoun error occurred!'});
    });
 
-   mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@cluster0.wa8hr.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`).then(()=>{
+    mongoose.connect(`mongodb+srv://admin:admin@cluster0.wa8hr.mongodb.net/notes?retryWrites=true&w=majority&appName=Cluster0`).then(()=>{
 
-   app.listen(5000);
+   app.listen(process.env.PORT || 5000);
 
 }).catch(err=>{console.log(err)});
 
