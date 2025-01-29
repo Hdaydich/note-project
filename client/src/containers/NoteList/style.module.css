@@ -1,0 +1,35 @@
+.card_container {
+    margin: 15px;
+  }
+  .div {
+    display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.p{
+  color: white;
+  text-transform: capitalize;
+  font-weight: lighter;
+  padding: 10px;
+}
+.button{
+  margin: 0px;
+  background-color: blue;
+}
+
+.buttonDiv{
+  display: inline;
+  margin: 0px;
+}
+@media only screen and (max-width: 991px) {  
+  .card_container {
+    width: 100%;
+  margin: 10px auto;
+    
+  }
+  .div {
+  flex-wrap:none;
+  margin: 0 auto;
+}
+}

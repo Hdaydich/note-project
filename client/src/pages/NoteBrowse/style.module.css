@@ -1,0 +1,42 @@
+.div {
+      display: flex;
+      flex-direction: column;
+      margin: 15px ;
+      
+}
+.divList {
+      display: flex;
+      flex-direction: column;
+      margin-left: 7%;
+      margin-right: 7%;
+      
+}
+.span {
+
+      margin: 0px auto;
+      text-align: center;
+}
+.divL {
+      display: flex;
+      flex-direction: column;
+      margin: 0px auto;
+      margin-left: 60px;
+      
+}
+  
+.loadingS{
+      margin-top: 30%;
+      margin-left: 30%;
+}
+@media only screen and (max-width: 850px) {  
+      .span {
+            font-size: smaller;
+      }
+      .div {
+           margin-top: 5% ;
+            
+      }
+    
+    }
+
+    

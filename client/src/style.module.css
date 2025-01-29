@@ -1,0 +1,18 @@
+.outlet_container {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .header_container {
+    margin: 0 auto;
+  }
+  
+@media only screen and (max-width: 991px) {  
+  .outlet_container {
+    
+    margin: 0 auto;
+    padding: 0px auto;
+  }
+}
+

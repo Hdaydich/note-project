@@ -1,0 +1,33 @@
+
+.container {
+    
+   /* Otherwise the clickable area for the logo is to wide */
+    display: flex;
+    cursor: pointer;
+}
+
+.img {
+    height: 80px;
+    margin: 0px auto;
+    padding-top: 1%;
+}
+
+.subtitle {
+    
+    margin: 5px auto;
+    color: #b8b8b8;
+    word-wrap: break-word;
+   text-align: center;
+   align-items: center;
+   text-transform: uppercase;
+   padding-bottom: 1%;
+}
+
+@media only screen and (max-width: 991px) {  
+    .img {
+       padding-top: 10%;
+    }
+    .subtitle {
+      font-size: smaller;
+    }
+}

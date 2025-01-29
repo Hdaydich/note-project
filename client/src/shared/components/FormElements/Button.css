@@ -1,0 +1,77 @@
+/* .button {
+  font: inherit;
+  border: 1px solid #ff0055;
+  background: #ff0055;
+  color: white;
+  cursor: pointer;
+} */
+
+.button {
+  border-radius: 50px;
+  font-weight: bold;
+  width: 30%;
+  height: 40px;
+  background-color: #2200e4f0;
+  border: none;
+  color: white;
+  font-size: 16px;
+  margin-left: 35%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+}
+
+.button:hover,
+.button:active {
+  background: #0d6dfd71;
+}
+
+.button--inverse {
+  background: transparent;
+  color: #ff0055;
+}
+
+.button--inverse:hover,
+.button--inverse:active {
+  color: white;
+  background: #ff0055;
+}
+
+.button--danger {
+  background: #c1c1c1;
+}
+
+.button--danger:hover,
+.button--danger:active {
+  background: #f34343;
+  border-color: #f34343;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+  margin-left: 35%;
+}
+
+.button--small {
+  font-size: 0.8rem;
+}
+
+.button--big {
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 750px) {  
+
+  .button, .button:disabled,
+  .button:hover:disabled,
+  .button:active:disabled  {
+    width: 40%;
+    margin-left: 30%;
+  
+  }
+  
+}

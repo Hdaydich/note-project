@@ -1,0 +1,116 @@
+.container {
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+     margin: 0 auto; 
+  }
+  
+  .icon{
+    margin-top: -40px;
+    float:right;
+    padding: 0px;
+
+  }
+  .dateIcon{
+  justify-content: space-between ;
+   padding: 20px;
+   padding-top: 0px;
+   padding-bottom: 5px;
+
+    
+  }
+  .h4{
+    color: rgb(183, 110, 110);
+    font-weight: lighter;
+    margin-top: 10px;
+  }
+
+  .h3{
+    color: rgb(50, 66, 187);
+    font-weight: lighter;
+    border-top: 1px solid rgba(18, 34, 155, 0.459);
+    border-bottom: 1px solid rgba(18, 34, 155, 0.459);
+    background-color: rgba(236, 236, 236, 0.438);
+    margin-left: -30px;
+    margin-right: -20px;
+    margin-top: -10px;
+    padding: 10px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+.p{
+  text-align: center;
+  padding-top: 5px;
+}
+
+  
+  .text_content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    margin: 0px;
+    padding-left: 20px;
+    font-size: 14px;
+    color: #575454d2;
+    font-weight: lighter;
+    text-transform: capitalize;
+  }
+
+  /* @media only screen and (max-width: 500px) {  
+  .container {
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    height: 200px;
+    background-color: white;
+    margin: 0px;
+    display: block;
+  }
+  
+  .icon{
+    margin-top: -40px;
+    float:right;
+    padding: 0px;
+
+  }
+  .dateIcon{
+  justify-content: space-between ;
+   padding: 20px;
+   padding-top: 0px;
+   padding-bottom: 5px;
+
+    
+  }
+  .h4{
+    color: rgb(183, 110, 110);
+    font-weight: lighter;
+    margin-top: 10px;
+  }
+
+  .h3{
+    color: rgb(50, 66, 187);
+    font-weight: lighter;
+    border-top: 1px solid rgba(18, 34, 155, 0.459);
+    border-bottom: 1px solid rgba(18, 34, 155, 0.459);
+    background-color: rgba(236, 236, 236, 0.438);
+    margin-left: -30px;
+    margin-right: -20px;
+    margin-top: -10px;
+    padding: 10px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+
+} */
