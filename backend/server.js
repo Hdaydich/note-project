@@ -10,6 +10,10 @@ const path = require('path');
 
 const app=express();
 
+const corsOptions = {
+    origin: "https://note-manager-cn1g.onrender.com", // frontend URI (ReactJS)
+}
+
 app.use(bodyParser.json());
 
 app.use(express.static(path.join('public')));
