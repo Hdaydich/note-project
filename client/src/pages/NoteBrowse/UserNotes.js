@@ -15,7 +15,7 @@ export function  UserNotes (){
 
   const [loadedNotes, setLoadedNotes] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const [searchText, setSearchText] = useState();
+  const [searchText, setSearchText] = useState("");
   const [searchedNotes, setSearchedNotes] = useState();
   const [noteList, setNoteList] = useState();
   
@@ -38,36 +38,31 @@ export function  UserNotes (){
     fetchNotes();
   }, [sendRequest, userId]);
 
+
   const noteDeletedHandler = deletedNoteId => {
     setLoadedNotes(prevNotes =>
       prevNotes.filter(note => note.id  !== deletedNoteId)
     );
   };
-
-
-      const serachSubmitHandler =  () => {
-          const filteredList = loadedNotes.filter((note) => {
-          const containsTitle = note.title
-            .toUpperCase()
-            .includes(searchText.trim().toUpperCase());
-      
-          const containsContent = note.content
-            .toUpperCase()
-            .includes(searchText.trim().toUpperCase());
-      
-          return containsTitle || containsContent;
-        });
-        setSearchedNotes(filteredList);
-      }
       
     useEffect(() => {
-        if(searchText ==="")
+        if(searchText === "")
         {
           setNoteList(loadedNotes);
         } 
         else{
-          
-          serachSubmitHandler();
+
+          setSearchedNotes ( loadedNotes.filter((note) => {
+            const containsTitle = note.title
+              .toUpperCase()
+              .includes(searchText.toUpperCase());
+            
+            const containsContent = note.content
+              .toUpperCase()
+              .includes(searchText.toUpperCase());
+        
+            return containsTitle || containsContent;
+          }));
           setNoteList(searchedNotes);
         }
     }, [searchText]);
