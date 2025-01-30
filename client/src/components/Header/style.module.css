@@ -23,7 +23,7 @@
   padding: 15px;
   cursor: pointer;
 }
-.p{
+/* .p{
   padding: 0px;
   margin: 0px;
   margin-top:5px;
@@ -31,7 +31,8 @@
   color: rgb(243, 46, 7);
   text-transform: uppercase;
   font-size: smaller;
-}
+} */
+
 .add{
   margin-top: 50%;
   margin-left: 25%;
