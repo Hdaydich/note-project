@@ -23,15 +23,15 @@
   padding: 15px;
   cursor: pointer;
 }
-/* .p{
+.p{
   padding: 0px;
   margin: 0px;
   margin-top:5px;
   padding-right: 8px;
   color: rgb(243, 46, 7);
   text-transform: uppercase;
-  font-size: smaller;
-} */
+  font-size: 12px;
+} 
 
 .add{
   margin-top: 50%;
