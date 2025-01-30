@@ -15,6 +15,10 @@ export function  UserNotes (){
 
   const [loadedNotes, setLoadedNotes] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [searchText, setSearchText] = useState();
+  const [searchedNotes, setSearchedNotes] = useState();
+  const [noteList, setNoteList] = useState();
+  
   const navigate=useNavigate();
 
   const auth = useContext(AuthContext);
@@ -28,16 +32,45 @@ export function  UserNotes (){
           `${process.env.REACT_APP_BACKEND_URL}/notes/user/${userId}`
         );
         setLoadedNotes(responseData.notes);
+        setNoteList(responseData.notes);
       } catch (err) {}
     };
     fetchNotes();
   }, [sendRequest, userId]);
 
   const noteDeletedHandler = deletedNoteId => {
-    setLoadedNotes(prevPlaces =>
-      prevPlaces.filter(note => note.id  !== deletedNoteId)
+    setLoadedNotes(prevNotes =>
+      prevNotes.filter(note => note.id  !== deletedNoteId)
     );
   };
+
+
+      const serachSubmitHandler =  () => {
+          const filteredList = loadedNotes.filter((note) => {
+          const containsTitle = note.title
+            .toUpperCase()
+            .includes(searchText.trim().toUpperCase());
+      
+          const containsContent = note.content
+            .toUpperCase()
+            .includes(searchText.trim().toUpperCase());
+      
+          return containsTitle || containsContent;
+        });
+        setSearchedNotes(filteredList);
+      }
+      
+    useEffect(() => {
+        if(searchText ==="")
+        {
+          setNoteList(loadedNotes);
+        } 
+        else{
+          
+          serachSubmitHandler();
+          setNoteList(searchedNotes);
+        }
+    }, [searchText]);
 
 
   return (
@@ -50,14 +83,14 @@ export function  UserNotes (){
         <div className={`col-sm-12 col-md-4 ${s.div}`}>
           <SearchBar
             placeholder="Search your notes..."
-            // onTextChange={setSearchText}
+            onTextChange={setSearchText}
           />
         </div>
       </div>
       {/* <ErrorModal error={error} onClear={clearError} /> */}
       {isLoading && <LoadingSpinner /> }
 
-      {!loadedNotes && (
+      {!noteList && (
         <div className={s.div}>
           <span className={s.span}>
             Vous n'avez pas de note, voulez vous en{" "}
@@ -66,7 +99,7 @@ export function  UserNotes (){
         </div>
       )}
       <div className={s.divList}>
-      {!isLoading && loadedNotes &&  <NoteList noteList={loadedNotes}  onDelete={noteDeletedHandler}/>}
+      {!isLoading && noteList &&  <NoteList noteList={noteList}  onDelete={noteDeletedHandler}/>}
       </div>
     </React.Fragment>
   );
