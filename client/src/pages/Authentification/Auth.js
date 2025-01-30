@@ -154,6 +154,10 @@ export function Auth() {
           autocomplete="on"
           onInput={inputHandler}
         />
+
+         <div className={s.fp}>
+          <a onClick={switchModeHandler} className={s.linkUnderline}>{isLoginMode ? "forgotten password ?" : ""}</a>
+        </div>
         <Button type="submit" disabled={!formState.isValid}>
           {isLoginMode ? "LOGIN" : "SIGNUP"}
         </Button>
