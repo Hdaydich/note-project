@@ -12,6 +12,17 @@
       margin-bottom: 5px;
  
     }
+   .fp{
+      text-align: right;
+      align-items: right;
+      color: rgb(121, 131, 207);
+      font-weight: lighter;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 5px;
+      padding-right: 10px;
+    }
+
   .h1{
     border-top-left-radius:20px ;
     border-top-right-radius:22px ;
