@@ -18,7 +18,7 @@ export function Header({ buttonText, buttonAction }) {
 
   return (
     <div className={`row ${s.container}`}>
-      <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 ${s.divLogo}">
+      <div className={s.divLogo}>
         <Logo
           onClick={() => navigate("/")}
           subtitle="Manage your notes"
