@@ -40,7 +40,7 @@ export function  UserNotes (){
 
 
   const noteDeletedHandler = deletedNoteId => {
-    setLoadedNotes(prevNotes =>
+    setNoteList(prevNotes =>
       prevNotes.filter(note => note.id  !== deletedNoteId)
     );
   };
