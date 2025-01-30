@@ -8,6 +8,8 @@
       margin: 0px auto;
       margin-top: 10px;
       padding-top: 0px;
+      margin-top: 5%;
+      margin-bottom: 5%;
  
     }
   .h1{
@@ -115,10 +117,7 @@
   @media only screen and (max-width: 500px) {  
     .container {
       width: 80%;
-      margin-top: 5%;
-      
     }
-  
   }
 
     
