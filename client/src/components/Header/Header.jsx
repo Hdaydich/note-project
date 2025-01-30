@@ -26,7 +26,7 @@ export function Header({ buttonText, buttonAction }) {
         />
       </div>
       <div className={`col-xs-12 col-sm-8 col-md-8 col-lg-8  ${s.buttonCont}`}>
-        <ToggleOn onClick={auth.logout} size={40} className={s.off}>
+        <ToggleOn onClick={auth.logout} size={30} className={s.off}>
           {/* <span className={s.add}>Log out</span> */}
         </ToggleOn>
         <PlusCircleFill size={30} className={s.add} onClick={buttonAction} />
