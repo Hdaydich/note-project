@@ -30,9 +30,9 @@ const getUsersByEmail=async(req,res,next)=>{
              const error=new HttpError('Someting went wrong.. fetching users failed! please try again ..',500);
              return next(error);
          }
-         console.log(user.name);
-         console.log(user.email);
-         console.log(user.password);
+        //  console.log(user.name);
+        //  console.log(user.email);
+        //  console.log(user.password);
     res.json({name:user.name ,email:user.email , pwd:user.password});
 
 } ;
@@ -106,8 +106,7 @@ const login =async(req,res,next)=>{
     let identifiedUser;
 
     try {
-        identifiedUser= await User.findOne({email:email , password:password});
-        
+        identifiedUser= await User.findOne({email:email});
         console.log(identifiedUser);
     
        } catch (err){
@@ -116,7 +115,7 @@ const login =async(req,res,next)=>{
        }
 
     // let isValidPassword=false;
-   
+    
     // try{
     //     isValidPassword= await bcrypt.compare(password,identifiedUser.password);
     //     console.log(isValidPassword);
@@ -129,6 +128,11 @@ const login =async(req,res,next)=>{
     //     const error=new HttpError('Invalid credentials, could not log  you in!',403);
     //     return next(error);
     // }
+
+    if(password != identifiedUser.password){
+        const error=new HttpError('Invalid credentials, could not log  you in!',403);
+        return next(error);
+    }
 
     
     let token;
