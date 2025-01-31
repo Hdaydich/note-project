@@ -59,13 +59,14 @@ const signup =async(req,res,next)=>{
         return next(new HttpError('User does exist!',422)) ;
     }
 
-    let hashedPassword ;
-    try{
+    const hashedPassword= password;
+    
+   /* try{
         hashedPassword = await bcrypt.hash(password, 12);
     } catch (err) {
         const error= new HttpError('Could not create user ! Please try again',500);
         return next(error);
-    }
+    } */
 
     const createdUser=new User({
         name,
