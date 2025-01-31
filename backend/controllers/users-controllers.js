@@ -102,17 +102,19 @@ const signup =async(req,res,next)=>{
 const login =async(req,res,next)=>{
 
     const {email,password}=req.body;
-
+    const mail=email.toString().toLowerCase();
+    console.log(mail);
     let identifiedUser;
 
     try {
-        identifiedUser= await User.findOne({email:email});
-        console.log(identifiedUser);
+        identifiedUser= await User.findOne({email : mail});
     
        } catch (err){
            const error=new HttpError('Someting went wrong.. User do not exist! please try again ..',500);
            return next(error);
        }
+       
+       console.log(identifiedUser);
 
     // let isValidPassword=false;
     
@@ -129,10 +131,10 @@ const login =async(req,res,next)=>{
     //     return next(error);
     // }
 
-    if(password != identifiedUser.password){
-        const error=new HttpError('Invalid credentials, could not log  you in!',403);
-        return next(error);
-    }
+    // if(password != identifiedUser.password){
+    //     const error=new HttpError('Invalid credentials, could not log  you in!',403);
+    //     return next(error);
+    // }
 
     
     let token;
