@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import { Header } from '../../components/Header/Header';
 import { NoteList } from "../../containers/NoteList/NoteList";
-import ErrorModal from '../../shared/components/UIElements/ErrorModal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import { useNavigate } from "react-router-dom";
@@ -25,6 +23,12 @@ export function  UserNotes (){
 
   const userId = auth.userId;
 
+  const noteDeletedHandler = deletedNoteId => {
+    setNoteList(prevNotes =>
+      prevNotes.filter(note => note.id  !== deletedNoteId)
+    );
+  };
+
   useEffect(() => {
     const fetchNotes = async () => {
       try {
@@ -38,21 +42,16 @@ export function  UserNotes (){
     fetchNotes();
   }, [sendRequest, userId]);
 
-
-  const noteDeletedHandler = deletedNoteId => {
-    setNoteList(prevNotes =>
-      prevNotes.filter(note => note.id  !== deletedNoteId)
-    );
-  };
       
     useEffect(() => {
-        if(searchText === "")
+        if(!searchText || searchText == "")
         {
           setNoteList(loadedNotes);
         } 
         else{
-
+          
           setSearchedNotes ( loadedNotes.filter((note) => {
+            
             const containsTitle = note.title
               .toUpperCase()
               .includes(searchText.toUpperCase());
@@ -60,12 +59,13 @@ export function  UserNotes (){
             const containsContent = note.content
               .toUpperCase()
               .includes(searchText.toUpperCase());
-        
             return containsTitle || containsContent;
           }));
+
           setNoteList(searchedNotes);
         }
     }, [searchText]);
+
 
 
   return (

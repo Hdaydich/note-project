@@ -15,6 +15,7 @@ import { AuthContext } from '../../shared/context/auth-context';
 import "./newNote.css";
 
 const NewNote = () => {
+  
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [formState, inputHandler] = useForm(

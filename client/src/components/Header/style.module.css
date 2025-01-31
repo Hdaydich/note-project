@@ -4,16 +4,13 @@
   margin-top: 5px;
   background-color: white;
   padding: 20px;
+  padding-left: 50px;
   box-shadow: 2px 1px 4px 1px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-between ;
   height: 20%;
  
 }
-.divLogo{
-  margin-top: 20px;
-}
-
 .logo{
   height: 20px;
 }
@@ -30,9 +27,8 @@
   padding-right: 8px;
   color: rgb(243, 46, 7);
   text-transform: uppercase;
-  font-size: 12px;
-} 
-
+  font-size: smaller;
+}
 .add{
   margin-top: 50%;
   margin-left: 25%;
@@ -56,5 +52,12 @@
   text-align: center;
   color: rgb(255, 55, 0);
   text-shadow: 2px 1px 4px 1px rgba(0, 0, 0, 0.4);
+}
+@media only screen and (max-width: 991px) {  
+  .addnote{
+    font-weight:lighter;
+    font-size: 14px;
+  }
+  
 }
 

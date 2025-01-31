@@ -12,11 +12,8 @@ import Modal from "../../shared/components/UIElements/Modal";
 import Button from "../../shared/components/FormElements/Button";
 
 export function NoteList(props) {
-  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [note, setNote] = useState();
 
   return (
     <React.Fragment>

@@ -1,12 +1,12 @@
 import { UserNotes } from "./pages/NoteBrowse/UserNotes";
 import { UpdateNote } from "./pages/Note/UpdateNote";
-import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import React from "react";
 import { BrowserRouter, Route, Routes, Redirect } from "react-router-dom";
 import { Auth } from "./pages/Authentification/Auth";
 import NewNote from "./pages/NoteCreate/NewNote";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
+import Contact from "./pages/ForgPass/Contact";
 
 export function App() {
   const { token, login, logout, userId } = useAuth();
@@ -26,6 +26,7 @@ export function App() {
     routes = (
       <Routes>
         <Route path="/" element={<Auth />} />
+        <Route path="/Forgetten" element={<Contact />} />
       </Routes>
     );
   }

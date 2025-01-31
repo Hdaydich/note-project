@@ -1,6 +1,6 @@
 {
-    "short_name": "Note manager",
-    "name": "Manage your note",
+    "short_name": "React App",
+    "name": "Create React App Sample",
   
     "start_url": ".",
     "display": "standalone",
