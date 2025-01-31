@@ -94,7 +94,16 @@
     cursor: pointer;
     margin-top: 20px;
   }
-
+  
+  .linkVal{
+    text-align: center;
+    align-items: center;
+    color: rgb(63, 128, 80);
+    padding: 10px;
+    font-weight: lighter;
+    cursor: pointer;
+    margin-top: 20px;
+  }
   .linkUnderline{
     text-decoration: underline;
   }

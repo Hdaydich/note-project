@@ -12,13 +12,16 @@ import { Logo } from "../../components/Logo/Logo";
 import note from "../../assets/images/note.png";
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
+import ConfirmNote from '../../shared/components/UIElements/ConfirmNote';
 
 const Contact =  () => {
+
 
   const navigate =useNavigate();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   
     const [isShow, setisShow] = useState(false);
+    const [isConf, setisConf] = useState(false);
   const [formState, inputHandler] = useForm(
     {
       email: {
@@ -62,9 +65,11 @@ const Contact =  () => {
         notification,
         'M4iQvBryW-wgb5pKz'
       ).then((response) => {
-        
+        setisConf(true);
         console.log('Email sent successfully!');
+        setTimeout(() => {
           navigate("/");
+        }, 1000);
 
       }).catch((err) => {
 
@@ -108,6 +113,7 @@ const Contact =  () => {
         <Button type="submit" > Envoyer </Button>
         </form>
         {isShow && <p className={s.link}> Invalid credentials! </p>}
+        {isConf && <p className={s.linkVal}> Done! Check your e-mail :) </p>}
         </div>
     </React.Fragment>
     
