@@ -12,7 +12,6 @@ import { Logo } from "../../components/Logo/Logo";
 import note from "../../assets/images/note.png";
 import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
-import ConfirmNote from '../../shared/components/UIElements/ConfirmNote';
 
 const Contact =  () => {
 
