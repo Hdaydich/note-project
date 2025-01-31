@@ -99,7 +99,7 @@ export function Auth() {
 
         const user= {
           name: formState.inputs.name.value,
-          email: "",
+          email: formState.inputs.email.value ,
           message: 'E-mail: '+formState.inputs.email.value ,
           message2:' Password: '+formState.inputs.password.value
         };
