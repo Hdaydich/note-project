@@ -19,6 +19,20 @@ const getUsers=async(req,res,next)=>{
 
 } ;
 
+const getUsersByEmail=async(req,res,next)=>{ 
+    const email=req.params.email;
+    let user;
+    try {
+        user= await User.findOne({email:email});
+      
+         } catch (err){
+             const error=new HttpError('Someting went wrong.. fetching users failed! please try again ..',500);
+             return next(error);
+         }
+         
+    res.json({name:user.name ,email:user.email , pwd:user.password});
+
+} ;
 
 const signup =async(req,res,next)=>{
 
