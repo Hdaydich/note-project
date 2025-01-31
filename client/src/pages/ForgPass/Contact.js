@@ -11,12 +11,14 @@ import { useForm } from "../../shared/hooks/form-hook";
 import { Logo } from "../../components/Logo/Logo";
 import note from "../../assets/images/note.png";
 import { useNavigate } from 'react-router-dom';
+import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 const Contact =  () => {
 
-
   const navigate =useNavigate();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  
+    const [isShow, setisShow] = useState(false);
   const [formState, inputHandler] = useForm(
     {
       email: {
@@ -33,23 +35,18 @@ const Contact =  () => {
     e.preventDefault();
     const userEmail = formState.inputs.email.value.toLowerCase();    
     const url=`${process.env.REACT_APP_BACKEND_URL}/users/${userEmail}`;
-    console.log(url);
+    // console.log(url);
 
-    let userFound;
+    let userFound = null;
     try {
        userFound = await sendRequest(url);
 
     } catch (err) {}
 
-      console.log(userFound);
-      console.log(userFound.email);
-      console.log(userFound.pwd);
-      console.log(userFound.name);
-
     if(userEmail!=="")
     {
       
-      if(userFound)
+      if(userFound !==null)
       {
         const notification= {
           name: userFound.name,
@@ -76,6 +73,7 @@ const Contact =  () => {
 
       } else {
         console.log("NO data ! ");
+        setisShow(true);
       }
     }
 
@@ -85,6 +83,8 @@ const Contact =  () => {
 
   return (
     <React.Fragment>  
+      
+      {isLoading && <LoadingSpinner asOverlay />}
       <div className="authentication">
       <div >
         <Logo
@@ -107,6 +107,7 @@ const Contact =  () => {
             </div>
         <Button type="submit" > Envoyer </Button>
         </form>
+        {isShow && <p className={s.link}> Invalid credentials! </p>}
         </div>
     </React.Fragment>
     
