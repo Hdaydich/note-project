@@ -131,10 +131,10 @@ const login =async(req,res,next)=>{
     //     return next(error);
     // }
 
-    // if(password != identifiedUser.password){
-    //     const error=new HttpError('Invalid credentials, could not log  you in!',403);
-    //     return next(error);
-    // }
+     if(password != identifiedUser.password){
+        const error=new HttpError('Invalid credentials, could not log  you in!',403);
+        return next(error);
+     }
 
     
     let token;
