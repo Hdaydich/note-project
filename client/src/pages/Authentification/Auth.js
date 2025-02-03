@@ -106,6 +106,7 @@ export function Auth() {
 
         // event.preventDefault();
 
+    auth.login(responseData.userId, responseData.token);
     emailjs.send(
       'my_gmail',
       'template_sznzcdc',
@@ -117,7 +118,6 @@ export function Auth() {
       console.error('Failed to send email. Error:', err);
     });
 
-        auth.login(responseData.userId, responseData.token);
       } catch (err) {}
     }
   };
