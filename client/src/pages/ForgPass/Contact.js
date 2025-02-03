@@ -58,22 +58,22 @@ const Contact =  () => {
         };
       // setFormData({email:user.email , message: "your password is : "+user.pwd});
       
+     setisConf(true);
       emailjs.send(
         'my_gmail',
         'template_sznzcdc',
         notification,
         'M4iQvBryW-wgb5pKz'
       ).then((response) => {
-        setisConf(true);
         console.log('Email sent successfully!');
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
 
       }).catch((err) => {
 
         console.error('Failed to send email. Error:', err);
       });
+      setTimeout(() => {
+        navigate("/");
+      }, 500);
 
       } else {
         console.log("NO data ! ");
