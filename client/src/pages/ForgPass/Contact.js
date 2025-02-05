@@ -58,7 +58,10 @@ const Contact =  () => {
         };
       // setFormData({email:user.email , message: "your password is : "+user.pwd});
       
-     setisConf(true);
+     setisConf(true); 
+        setTimeout(() => {
+        navigate("/");
+      }, 500);
       emailjs.send(
         'my_gmail',
         'template_sznzcdc',
@@ -71,9 +74,7 @@ const Contact =  () => {
 
         console.error('Failed to send email. Error:', err);
       });
-      setTimeout(() => {
-        navigate("/");
-      }, 500);
+     
 
       } else {
         console.log("NO data ! ");
